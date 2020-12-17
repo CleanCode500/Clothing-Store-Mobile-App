@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1041988613069",
+    "project_id": "clothing-app-20cad",
+    "storage_bucket": "clothing-app-20cad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041988613069:android:cbc6026f5ac1c32d9a4a84",
+        "android_client_info": {
+          "package_name": "org.turbox.ClothingStoreApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041988613069-ir14e9l1qtdr7lvdlus39e970s5hj203.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHFJUke0TwlgpToiPFRAWA4JMVL1D2acM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1041988613069-ir14e9l1qtdr7lvdlus39e970s5hj203.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
