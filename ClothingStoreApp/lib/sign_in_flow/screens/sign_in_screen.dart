@@ -77,8 +77,19 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [Colors.pink, Colors.blue],
+              )
+            ),
+          ),
+          SingleChildScrollView(
+          child: Padding(
           padding: EdgeInsets.all(32),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -159,6 +170,8 @@ class _SignInScreenState extends State<SignInScreen> {
           ),
         ),
       ),
+        ],
+      )
     );
   }
 }
