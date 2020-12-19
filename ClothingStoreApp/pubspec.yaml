@@ -23,3 +23,12 @@ flutter:
 
   assets:
     - assets/background.jpg
+
+  fonts:
+    - family: FuturaPT
+      fonts:
+        - asset: assets/fonts/FuturaPTMedium.otf
+        - asset: assets/fonts/FuturaPTBold.otf
+          weight: 900
+        - asset: assets/fonts/FuturaPTLight.otf
+          weight: 100

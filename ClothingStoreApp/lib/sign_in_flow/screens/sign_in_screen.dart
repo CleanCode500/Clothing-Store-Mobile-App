@@ -48,6 +48,10 @@ class _SignInScreenState extends State<SignInScreen> {
     } else {
       message = "General Error: $error";
     }
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(message),
+      backgroundColor: Colors.red,
+    ));
   }
 
   void _signInWithEmailWithPassword({String email, String password}) async {
@@ -144,7 +148,7 @@ class _SignInScreenState extends State<SignInScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Need an account?'),
+                  Text('Need an account?', style: TextStyle(color: Colors.pinkAccent),),
                   SizedBox(width: 12),
                   FlatButton(
                     textColor: Theme.of(context).primaryColor,

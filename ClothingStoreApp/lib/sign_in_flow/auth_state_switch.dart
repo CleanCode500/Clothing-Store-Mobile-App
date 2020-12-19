@@ -34,6 +34,7 @@ class AuthStateSwitch extends StatelessWidget {
                 return MaterialApp(
                   theme: ThemeData(
                     primaryColor: Colors.black,
+                    fontFamily: 'FuturaPT',
                   ),
                   home: SignInScreen());
               }
