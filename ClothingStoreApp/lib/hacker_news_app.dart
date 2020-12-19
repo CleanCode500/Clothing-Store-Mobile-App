@@ -21,8 +21,7 @@ class HackerNewsApp extends StatelessWidget {
         backgroundColor: Colors.white,
         title: Text(
           'MI CUENTA',
-          style: TextStyle(
-              color: Colors.black, fontSize: 18),
+          style: TextStyle(color: Colors.black, fontSize: 18),
         ),
         centerTitle: true,
         actions: <Widget>[
