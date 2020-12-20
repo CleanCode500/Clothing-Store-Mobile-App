@@ -1,4 +1,4 @@
-import 'package:ClothingStoreApp/hacker_news_app.dart';
+import 'package:clothing_store_app/hacker_news_app.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'My App which needs login',
       theme: ThemeData(
         primaryColor: Colors.black,

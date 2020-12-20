@@ -9,6 +9,7 @@ class AuthStateSwitch extends StatelessWidget {
 
   Widget _buildSplash(String msg) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Center(child: Text(msg)),
       ),
@@ -32,6 +33,7 @@ class AuthStateSwitch extends StatelessWidget {
               final user = snapshot.data;
               if (user == null) {
                 return MaterialApp(
+                  debugShowCheckedModeBanner: false,
                   theme: ThemeData(
                     primaryColor: Colors.black,
                     fontFamily: 'FuturaPT',

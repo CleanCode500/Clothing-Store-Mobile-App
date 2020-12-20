@@ -1,4 +1,4 @@
-import 'package:ClothingStoreApp/sign_in_flow/screens/sign_up_screen.dart';
+import 'package:clothing_store_app/sign_in_flow/screens/sign_up_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class EmailAndPassword {
-  String email, password;
-  EmailAndPassword(this.email, this.password);
+  String email, password, fullName;
+  EmailAndPassword(this.email, this.password, this.fullName);
 }
 
 class SignUpScreen extends StatefulWidget {
@@ -11,12 +11,13 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  TextEditingController _email, _password;
+  TextEditingController _email, _password, _fullName;
 
   @override
   void initState() {
     _email = TextEditingController();
     _password = TextEditingController();
+    _fullName = TextEditingController();
     super.initState();
   }
 
@@ -24,6 +25,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   void dispose() {
     _email.dispose();
     _password.dispose();
+    _fullName.dispose();
     super.dispose();
   }
 
@@ -66,6 +68,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 labelText: 'Password',
               ),
             ),
+            SizedBox(height: 12),
+            TextField(
+              controller: _fullName,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(3)),
+                ),
+                labelText: 'Full Name',
+              ),
+              keyboardType: TextInputType.name,
+            ),
             SizedBox(height: 20),
             FlatButton(
               color: Theme.of(context).primaryColor,
@@ -80,6 +93,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   EmailAndPassword(
                     _email.text,
                     _password.text,
+                    _fullName.text,
                   ),
                 );
               },
