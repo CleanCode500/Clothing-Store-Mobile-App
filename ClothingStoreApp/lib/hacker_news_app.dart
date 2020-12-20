@@ -20,7 +20,7 @@ class HackerNewsApp extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
         title: Text(
-          'MI CUENTA',
+          'MY ACCOUNT',
           style: TextStyle(color: Colors.black, fontSize: 18),
         ),
         centerTitle: true,
@@ -58,14 +58,23 @@ class AppPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(
-          'Hola, ${user.username}',
-          style: TextStyle(
-            fontSize: 22,
-            color: Colors.black,
-            fontWeight: FontWeight.w800,
+    return new Scaffold(
+      body: new Padding(
+        padding: const EdgeInsets.fromLTRB(150, 15, 0, 0),
+        child: new RichText(
+          textAlign: TextAlign.center,
+          text: TextSpan(
+            children: <TextSpan>[
+              TextSpan(
+                  text: 'Hey, \n',
+                  style: TextStyle(fontSize: 18, color: Colors.black)),
+              TextSpan(
+                  text: ' ${user.username}',
+                  style: TextStyle(
+                      fontSize: 22,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w800)),
+            ],
           ),
         ),
       ),

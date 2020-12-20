@@ -6,7 +6,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    
     return MaterialApp(
       title: 'My App which needs login',
       theme: ThemeData(
@@ -19,7 +18,6 @@ class MyApp extends StatelessWidget {
 }
 
 class HomeScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +38,7 @@ class HomeScreen extends StatelessWidget {
                   child: FlatButton(
                     color: Colors.white,
                     child: Text(
-                      "MUJER",
+                      "WOMEN",
                       style: TextStyle(
                         fontSize: 16,
                         color: Colors.black,
@@ -59,7 +57,7 @@ class HomeScreen extends StatelessWidget {
                   child: FlatButton(
                     color: Colors.white,
                     child: Text(
-                      "HOMBRE",
+                      "MEN",
                       style: TextStyle(
                         fontSize: 16,
                         color: Colors.black,
