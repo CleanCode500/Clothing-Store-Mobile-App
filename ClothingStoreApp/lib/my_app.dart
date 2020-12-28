@@ -1,4 +1,4 @@
-import 'package:clothing_store_app/hacker_news_app.dart';
+import 'package:clothing_store_app/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -6,13 +6,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    var themeData = ThemeData(
+        primaryColor: Colors.black,
+        fontFamily: 'FuturaPT',
+      );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'My App which needs login',
-      theme: ThemeData(
-        primaryColor: Colors.black,
-        fontFamily: 'FuturaPT',
-      ),
+      theme: themeData,
       home: HomeScreen(),
     );
   }
@@ -47,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => HackerNewsApp(),
+                        builder: (context) => HomePage(),
                       ));
                     },
                   ),
@@ -66,7 +67,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => HackerNewsApp(),
+                        builder: (context) => HomePage(),
                       ));
                     },
                   ),
