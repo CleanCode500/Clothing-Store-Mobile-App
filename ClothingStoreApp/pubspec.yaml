@@ -23,7 +23,12 @@ flutter:
 
   assets:
     - assets/background.jpg
-
+    - assets/images/novedades.png
+    - assets/images/shoes.png
+    - assets/images/accessories.png
+    - assets/images/jeans.png
+    - assets/images/suits.png
+    - assets/images/shirt.png
   fonts:
     - family: FuturaPT
       fonts:
