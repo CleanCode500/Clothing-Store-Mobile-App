@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class MyAccount extends StatelessWidget {
   @override
@@ -27,7 +28,7 @@ class MyAccount extends StatelessWidget {
         ],
       ),
       body: Container(
-        padding: EdgeInsets.all(25),
+        padding: EdgeInsets.all(20),
         child: ListView(children: [
           Center(
             child: Stack(
@@ -43,7 +44,12 @@ class MyAccount extends StatelessWidget {
                     shape: BoxShape.circle,
                     color: Colors.pink,
                   ),
-                  child: Center(child: Text("P", style: TextStyle(fontSize: 50, color: Colors.white),),),
+                  child: Center(
+                    child: Text(
+                      "P",
+                      style: TextStyle(fontSize: 50, color: Colors.white),
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -60,6 +66,66 @@ class MyAccount extends StatelessWidget {
               "Pauek",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
             ),
+          ),
+          SizedBox(height: 20),
+          ListTile(
+            title: Text(
+              "My Orders",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+            ),
+            leading: Icon(MdiIcons.packageVariantClosed, size: 32),
+            trailing: Icon(MdiIcons.arrowRight),
+            onTap: () {},
+          ),
+          SizedBox(height: 5),
+          ListTile(
+            title: Text(
+              "My Returns",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+            ),
+            leading: Icon(MdiIcons.packageVariant, size: 32),
+            trailing: Icon(MdiIcons.arrowRight),
+            onTap: () {},
+          ),
+          SizedBox(height: 5),
+          ListTile(
+            title: Text(
+              "My details",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+            ),
+            leading: Icon(MdiIcons.cardAccountDetailsOutline, size: 32),
+            trailing: Icon(MdiIcons.arrowRight),
+            onTap: () {},
+          ),
+          SizedBox(height: 5),
+          ListTile(
+            title: Text(
+              "Change password",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+            ),
+            leading: Icon(MdiIcons.lockOutline, size: 32),
+            trailing: Icon(MdiIcons.arrowRight),
+            onTap: () {},
+          ),
+          SizedBox(height: 5),
+          ListTile(
+            title: Text(
+              "Adress book",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+            ),
+            leading: Icon(MdiIcons.homeVariantOutline, size: 32),
+            trailing: Icon(MdiIcons.arrowRight),
+            onTap: () {},
+          ),
+          SizedBox(height: 5),
+          ListTile(
+            title: Text(
+              "Payment methods",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+            ),
+            leading: Icon(MdiIcons.creditCardOutline, size: 32),
+            trailing: Icon(MdiIcons.arrowRight),
+            onTap: () {},
           ),
         ]),
       ),
