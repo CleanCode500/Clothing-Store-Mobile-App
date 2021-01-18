@@ -28,7 +28,7 @@ class MyAccount extends StatelessWidget {
         ],
       ),
       body: Container(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
         child: ListView(children: [
           Center(
             child: Stack(
@@ -74,57 +74,77 @@ class MyAccount extends StatelessWidget {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
             ),
             leading: Icon(MdiIcons.packageVariantClosed, size: 32),
-            trailing: Icon(MdiIcons.arrowRight),
+            trailing: Icon(MdiIcons.chevronRight),
             onTap: () {},
           ),
-          SizedBox(height: 5),
+          SizedBox(height: 8),
           ListTile(
             title: Text(
               "My Returns",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
             ),
             leading: Icon(MdiIcons.packageVariant, size: 32),
-            trailing: Icon(MdiIcons.arrowRight),
+            trailing: Icon(MdiIcons.chevronRight),
             onTap: () {},
           ),
-          SizedBox(height: 5),
+          SizedBox(height: 8),
+          ListTile(
+            title: Text(
+              "Premier Delivery",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+            ),
+            leading: Icon(MdiIcons.crownOutline, size: 32),
+            trailing: Icon(MdiIcons.chevronRight),
+            onTap: () {},
+          ),
+          SizedBox(height: 8),
           ListTile(
             title: Text(
               "My details",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
             ),
             leading: Icon(MdiIcons.cardAccountDetailsOutline, size: 32),
-            trailing: Icon(MdiIcons.arrowRight),
+            trailing: Icon(MdiIcons.chevronRight),
             onTap: () {},
           ),
-          SizedBox(height: 5),
+          SizedBox(height: 8),
           ListTile(
             title: Text(
               "Change password",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
             ),
             leading: Icon(MdiIcons.lockOutline, size: 32),
-            trailing: Icon(MdiIcons.arrowRight),
+            trailing: Icon(MdiIcons.chevronRight),
             onTap: () {},
           ),
-          SizedBox(height: 5),
+          SizedBox(height: 8),
           ListTile(
             title: Text(
               "Adress book",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
             ),
             leading: Icon(MdiIcons.homeVariantOutline, size: 32),
-            trailing: Icon(MdiIcons.arrowRight),
+            trailing: Icon(MdiIcons.chevronRight),
             onTap: () {},
           ),
-          SizedBox(height: 5),
+          SizedBox(height: 8),
           ListTile(
             title: Text(
               "Payment methods",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
             ),
             leading: Icon(MdiIcons.creditCardOutline, size: 32),
-            trailing: Icon(MdiIcons.arrowRight),
+            trailing: Icon(MdiIcons.chevronRight),
+            onTap: () {},
+          ),
+          SizedBox(height: 8),
+          ListTile(
+            title: Text(
+              "Notifications",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+            ),
+            leading: Icon(MdiIcons.bellOutline, size: 32),
+            trailing: Icon(MdiIcons.chevronRight),
             onTap: () {},
           ),
         ]),
