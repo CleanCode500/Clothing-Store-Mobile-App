@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'app.dart';
 
 // ignore: must_be_immutable
 class ListTileScreen extends StatelessWidget {
@@ -16,20 +17,28 @@ class ListTileScreen extends StatelessWidget {
       child: GestureDetector(
           onTap: onTab,
           child: Container(
-            padding: EdgeInsets.only(left: 20),
             height: 100.0,
             decoration: BoxDecoration(color: color),
-            child: new Stack(
-              children: <Widget>[
-                Align(
-                    child: Text(title, style: TextStyle(fontSize: 18),),
-                    alignment: Alignment.centerLeft,
+            child: FlatButton(
+              onPressed: (){
+                Navigator.push(
+            context,
+            new MaterialPageRoute(
+                builder: (BuildContext context) =>
+                  new ListViewPage()));
+              },
+              child: new Stack(
+                children: <Widget>[
+                  Align(
+                      child: Text(title, style: TextStyle(fontSize: 18),),
+                      alignment: Alignment.centerLeft,
+                    ),
+                  Align(
+                    child: trailingImage,
+                    alignment: Alignment.centerRight,
                   ),
-                Align(
-                  child: trailingImage,
-                  alignment: Alignment.centerRight,
-                ),
-              ],
+                ],
+              ),
             ),
           ),
       ),

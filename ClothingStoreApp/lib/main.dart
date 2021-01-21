@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'my_app.dart';
 import 'sign_in_flow/auth_state_switch.dart';
 
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
