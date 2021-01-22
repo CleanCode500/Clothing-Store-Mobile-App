@@ -908,18 +908,18 @@ class ListViewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        iconTheme: IconThemeData(
-          color: Colors.black, //change your color here
+        appBar: new AppBar(
+          iconTheme: IconThemeData(
+            color: Colors.black, //change your color here
+          ),
+          backgroundColor: Colors.white,
+          title: Text(
+            "HOODIES",
+            style: TextStyle(color: Colors.black, fontSize: 18),
+          ),
+          centerTitle: true,
         ),
-        backgroundColor: Colors.white,
-        title: Text(
-          "HOODIES",
-          style: TextStyle(color: Colors.black, fontSize: 18),
-        ),
-        centerTitle: true,
-      ),
-      body: StreamBuilder(
+        body: StreamBuilder(
             stream:
                 FirebaseFirestore.instance.collection('clothes').snapshots(),
             builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -940,5 +940,105 @@ class ListViewPage extends StatelessWidget {
                     );
                   });
             }));
+  }
+}
+
+class ListViewPage2 extends StatelessWidget {
+  const ListViewPage2({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.black, //change your color here
+        ),
+        backgroundColor: Colors.white,
+        title: Text(
+          "HOODIES",
+          style: TextStyle(color: Colors.black, fontSize: 18),
+        ),
+        centerTitle: true,
+      ),
+      body: StreamBuilder(
+          stream: FirebaseFirestore.instance.collection('clothes').snapshots(),
+          builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            if (!snapshot.hasData) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            List<DocumentSnapshot> docs = snapshot.data.docs;
+
+            SizedBox(height: 20);
+            return ListView.builder(
+                itemCount: docs.length,
+                itemBuilder: (context, index) {
+                  //Map<String, dynamic> data = docs[index].data();
+
+                  if (docs[index].data().isNotEmpty && index < docs.length/2) {
+                    if (index > 0) {
+                      index = index * 2;
+                    }
+
+                    return Expanded(
+                        child: Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                      child: new Container(
+                          child: new Column(
+                        children: [
+                          Row(
+                            children: <Widget>[
+                              new Expanded(
+                                child: Container(
+                                  height: 300,
+                                  child: new Column(
+                                    children: <Widget>[
+                                      new Container(
+                                        height: 250,
+                                        decoration: new BoxDecoration(
+                                          image: new DecorationImage(
+                                              image: new NetworkImage(
+                                                  'https://i.pinimg.com/originals/03/da/b4/03dab4e312cf3517f593d394734f7f9a.jpg'),
+                                              fit: BoxFit.cover),
+                                        ),
+                                      ),
+                                      SizedBox(height: 5),
+                                      Container(
+                                        child: new Text(docs[index].data()['name'])),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: 20.0),
+                              new Expanded(
+                                child: Container(
+                                  height: 300,
+                                  child: new Column(
+                                    children: <Widget>[
+                                      new Container(
+                                        height: 250,
+                                        decoration: new BoxDecoration(
+                                          image: new DecorationImage(
+                                              image: new NetworkImage(
+                                                  'https://i.pinimg.com/originals/03/da/b4/03dab4e312cf3517f593d394734f7f9a.jpg'),
+                                              fit: BoxFit.cover),
+                                        ),
+                                      ),
+                                      SizedBox(height: 5),
+                                      new Text(docs[index + 1].data()['name'])
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      )),
+                    ));
+                  }
+                });
+          }),
+    );
   }
 }

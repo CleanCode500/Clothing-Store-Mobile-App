@@ -25,7 +25,7 @@ class ListTileScreen extends StatelessWidget {
             context,
             new MaterialPageRoute(
                 builder: (BuildContext context) =>
-                  new ListViewPage()));
+                  new ListViewPage2()));
               },
               child: new Stack(
                 children: <Widget>[
