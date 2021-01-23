@@ -976,7 +976,8 @@ class ListViewPage2 extends StatelessWidget {
                 itemBuilder: (context, index) {
                   //Map<String, dynamic> data = docs[index].data();
 
-                  if (docs[index].data().isNotEmpty && index < docs.length/2) {
+                  if (docs[index].data().isNotEmpty &&
+                      index < docs.length / 2) {
                     if (index > 0) {
                       index = index * 2;
                     }
@@ -991,7 +992,7 @@ class ListViewPage2 extends StatelessWidget {
                             children: <Widget>[
                               new Expanded(
                                 child: Container(
-                                  height: 300,
+                                  height: 340,
                                   child: new Column(
                                     children: <Widget>[
                                       new Container(
@@ -999,13 +1000,42 @@ class ListViewPage2 extends StatelessWidget {
                                         decoration: new BoxDecoration(
                                           image: new DecorationImage(
                                               image: new NetworkImage(
-                                                  'https://i.pinimg.com/originals/03/da/b4/03dab4e312cf3517f593d394734f7f9a.jpg'),
+                                                  docs[index].data()['photo']),
                                               fit: BoxFit.cover),
                                         ),
                                       ),
                                       SizedBox(height: 5),
+                                      Row(children: <Widget>[
+                                        Container(
+                                          child: Text(docs[index]
+                                                  .data()['price']
+                                                  .toString() +
+                                              '€', style: TextStyle(fontWeight: FontWeight.bold),),
+                                        ),
+                                        Container(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.30,
+                                          child: Padding(
+                                            padding: const EdgeInsets.fromLTRB(
+                                                80, 0, 0, 0),
+                                            child: IconButton(
+                                              icon: Icon(
+                                                MdiIcons.heartOutline,
+                                                color: Colors.black,
+                                                size: 20,
+                                              ),
+                                              onPressed: () {
+                                                // do something
+                                              },
+                                            ),
+                                          ),
+                                        ),
+                                      ]),
                                       Container(
-                                        child: new Text(docs[index].data()['name'])),
+                                          child: new Text(
+                                              docs[index].data()['name'])),
                                     ],
                                   ),
                                 ),
@@ -1013,7 +1043,7 @@ class ListViewPage2 extends StatelessWidget {
                               SizedBox(width: 20.0),
                               new Expanded(
                                 child: Container(
-                                  height: 300,
+                                  height: 340,
                                   child: new Column(
                                     children: <Widget>[
                                       new Container(
@@ -1021,11 +1051,40 @@ class ListViewPage2 extends StatelessWidget {
                                         decoration: new BoxDecoration(
                                           image: new DecorationImage(
                                               image: new NetworkImage(
-                                                  'https://i.pinimg.com/originals/03/da/b4/03dab4e312cf3517f593d394734f7f9a.jpg'),
+                                                  docs[index + 1]
+                                                      .data()['photo']),
                                               fit: BoxFit.cover),
                                         ),
                                       ),
                                       SizedBox(height: 5),
+                                      Row(children: <Widget>[
+                                        Container(
+                                          child: Text(docs[index+1]
+                                                  .data()['price']
+                                                  .toString() +
+                                              '€', style: TextStyle(fontWeight: FontWeight.bold),),
+                                        ),
+                                        Container(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.30,
+                                          child: Padding(
+                                            padding: const EdgeInsets.fromLTRB(
+                                                80, 0, 0, 0),
+                                            child: IconButton(
+                                              icon: Icon(
+                                                MdiIcons.heartOutline,
+                                                color: Colors.black,
+                                                size: 20,
+                                              ),
+                                              onPressed: () {
+                                                // do something
+                                              },
+                                            ),
+                                          ),
+                                        ),
+                                      ]),
                                       new Text(docs[index + 1].data()['name'])
                                     ],
                                   ),
