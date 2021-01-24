@@ -1,6 +1,7 @@
 import 'package:clothing_store_app/tile.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:custom_navigator/custom_navigator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -753,151 +754,173 @@ class Page5 extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-            iconTheme: IconThemeData(
-              color: Colors.black, //change your color here
-            ),
-            backgroundColor: Colors.white,
-            title: Text(
-              "MY ACCOUNT",
-              style: TextStyle(color: Colors.black, fontSize: 18),
-            ),
-            centerTitle: true,
-            actions: <Widget>[
-              IconButton(
-                  icon: Icon(MdiIcons.cogOutline),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        new MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                new ListViewPage()));
-                  })
-            ]),
-        body: Container(
-          padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
-          child: ListView(children: [
-            SizedBox(height: 40),
-            Center(
-              child: Stack(
-                children: [
-                  Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 2,
-                        color: Theme.of(context).scaffoldBackgroundColor,
+          appBar: AppBar(
+              iconTheme: IconThemeData(
+                color: Colors.black, //change your color here
+              ),
+              backgroundColor: Colors.white,
+              title: Text(
+                "MY ACCOUNT",
+                style: TextStyle(color: Colors.black, fontSize: 18),
+              ),
+              centerTitle: true,
+              actions: <Widget>[
+                IconButton(
+                    icon: Icon(MdiIcons.cogOutline),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  new ListViewPage()));
+                    })
+              ]),
+          body: StreamBuilder(
+              stream: FirebaseFirestore.instance
+                  .collection('users')
+                  .doc(FirebaseAuth.instance.currentUser.email)
+                  .snapshots(),
+              builder: (context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+                if (!snapshot.hasData) {
+                  return new Text("Loading");
+                }
+                return Container(
+                  padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+                  child: ListView(children: [
+                    SizedBox(height: 40),
+                    Center(
+                      child: Stack(
+                        children: [
+                          Container(
+                            width: 100,
+                            height: 100,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                width: 2,
+                                color:
+                                    Theme.of(context).scaffoldBackgroundColor,
+                              ),
+                              shape: BoxShape.circle,
+                              color: Colors.pink,
+                            ),
+                            child: Center(
+                              child: Text(
+                                "P",
+                                style: TextStyle(
+                                    fontSize: 50, color: Colors.white),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                      shape: BoxShape.circle,
-                      color: Colors.pink,
                     ),
-                    child: Center(
+                    SizedBox(height: 20),
+                    Center(
                       child: Text(
-                        "P",
-                        style: TextStyle(fontSize: 50, color: Colors.white),
+                        "Hi,",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.normal),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 20),
-            Center(
-              child: Text(
-                "Hi,",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
-              ),
-            ),
-            Center(
-              child: Text(
-                "Pauek",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
-              ),
-            ),
-            SizedBox(height: 20),
-            ListTile(
-              title: Text(
-                "My Orders",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-              ),
-              leading: Icon(MdiIcons.packageVariantClosed, size: 32),
-              trailing: Icon(MdiIcons.chevronRight),
-              onTap: () {},
-            ),
-            SizedBox(height: 8),
-            ListTile(
-              title: Text(
-                "My Returns",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-              ),
-              leading: Icon(MdiIcons.packageVariant, size: 32),
-              trailing: Icon(MdiIcons.chevronRight),
-              onTap: () {},
-            ),
-            SizedBox(height: 8),
-            ListTile(
-              title: Text(
-                "Premier Delivery",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-              ),
-              leading: Icon(MdiIcons.crownOutline, size: 32),
-              trailing: Icon(MdiIcons.chevronRight),
-              onTap: () {},
-            ),
-            SizedBox(height: 8),
-            ListTile(
-              title: Text(
-                "My details",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-              ),
-              leading: Icon(MdiIcons.cardAccountDetailsOutline, size: 32),
-              trailing: Icon(MdiIcons.chevronRight),
-              onTap: () {},
-            ),
-            SizedBox(height: 8),
-            ListTile(
-              title: Text(
-                "Change password",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-              ),
-              leading: Icon(MdiIcons.lockOutline, size: 32),
-              trailing: Icon(MdiIcons.chevronRight),
-              onTap: () {},
-            ),
-            SizedBox(height: 8),
-            ListTile(
-              title: Text(
-                "Adress book",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-              ),
-              leading: Icon(MdiIcons.homeVariantOutline, size: 32),
-              trailing: Icon(MdiIcons.chevronRight),
-              onTap: () {},
-            ),
-            SizedBox(height: 8),
-            ListTile(
-              title: Text(
-                "Payment methods",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-              ),
-              leading: Icon(MdiIcons.creditCardOutline, size: 32),
-              trailing: Icon(MdiIcons.chevronRight),
-              onTap: () {},
-            ),
-            SizedBox(height: 8),
-            ListTile(
-              title: Text(
-                "Notifications",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-              ),
-              leading: Icon(MdiIcons.bellOutline, size: 32),
-              trailing: Icon(MdiIcons.chevronRight),
-              onTap: () {},
-            ),
-          ]),
-        ),
-      ),
+                    Center(
+                      child: Text(
+                        ' ${snapshot.data["name"]} ${snapshot.data["surname"]},',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w700),
+                      ),
+                    ),
+                    SizedBox(height: 20),
+                    ListTile(
+                      title: Text(
+                        "My Orders",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w400),
+                      ),
+                      leading: Icon(MdiIcons.packageVariantClosed, size: 32),
+                      trailing: Icon(MdiIcons.chevronRight),
+                      onTap: () {},
+                    ),
+                    SizedBox(height: 8),
+                    ListTile(
+                      title: Text(
+                        "My Returns",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w400),
+                      ),
+                      leading: Icon(MdiIcons.packageVariant, size: 32),
+                      trailing: Icon(MdiIcons.chevronRight),
+                      onTap: () {},
+                    ),
+                    SizedBox(height: 8),
+                    ListTile(
+                      title: Text(
+                        "Premier Delivery",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w400),
+                      ),
+                      leading: Icon(MdiIcons.crownOutline, size: 32),
+                      trailing: Icon(MdiIcons.chevronRight),
+                      onTap: () {},
+                    ),
+                    SizedBox(height: 8),
+                    ListTile(
+                      title: Text(
+                        "My details",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w400),
+                      ),
+                      leading:
+                          Icon(MdiIcons.cardAccountDetailsOutline, size: 32),
+                      trailing: Icon(MdiIcons.chevronRight),
+                      onTap: () {},
+                    ),
+                    SizedBox(height: 8),
+                    ListTile(
+                      title: Text(
+                        "Change password",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w400),
+                      ),
+                      leading: Icon(MdiIcons.lockOutline, size: 32),
+                      trailing: Icon(MdiIcons.chevronRight),
+                      onTap: () {},
+                    ),
+                    SizedBox(height: 8),
+                    ListTile(
+                      title: Text(
+                        "Adress book",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w400),
+                      ),
+                      leading: Icon(MdiIcons.homeVariantOutline, size: 32),
+                      trailing: Icon(MdiIcons.chevronRight),
+                      onTap: () {},
+                    ),
+                    SizedBox(height: 8),
+                    ListTile(
+                      title: Text(
+                        "Payment methods",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w400),
+                      ),
+                      leading: Icon(MdiIcons.creditCardOutline, size: 32),
+                      trailing: Icon(MdiIcons.chevronRight),
+                      onTap: () {},
+                    ),
+                    SizedBox(height: 8),
+                    ListTile(
+                      title: Text(
+                        "Notifications",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w400),
+                      ),
+                      leading: Icon(MdiIcons.bellOutline, size: 32),
+                      trailing: Icon(MdiIcons.chevronRight),
+                      onTap: () {},
+                    ),
+                  ]),
+                );
+              })),
     );
   }
 }
@@ -1007,10 +1030,14 @@ class ListViewPage2 extends StatelessWidget {
                                       SizedBox(height: 5),
                                       Row(children: <Widget>[
                                         Container(
-                                          child: Text(docs[index]
-                                                  .data()['price']
-                                                  .toString() +
-                                              '€', style: TextStyle(fontWeight: FontWeight.bold),),
+                                          child: Text(
+                                            docs[index]
+                                                    .data()['price']
+                                                    .toString() +
+                                                '€',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
                                         Container(
                                           width: MediaQuery.of(context)
@@ -1059,10 +1086,14 @@ class ListViewPage2 extends StatelessWidget {
                                       SizedBox(height: 5),
                                       Row(children: <Widget>[
                                         Container(
-                                          child: Text(docs[index+1]
-                                                  .data()['price']
-                                                  .toString() +
-                                              '€', style: TextStyle(fontWeight: FontWeight.bold),),
+                                          child: Text(
+                                            docs[index + 1]
+                                                    .data()['price']
+                                                    .toString() +
+                                                '€',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          ),
                                         ),
                                         Container(
                                           width: MediaQuery.of(context)
